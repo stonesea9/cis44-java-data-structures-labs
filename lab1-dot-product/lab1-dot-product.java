@@ -1,0 +1,27 @@
+void main() {
+
+    int n = 5;
+    int[] a = new int[n];
+    int[] b = new int[n];
+    int[] c=new int[n];
+    for(int i=0;i<n;i++){
+     a[i]=(int)(Math.random()*100);// random 0~100
+     b[i]=(int)(Math.random()*100);
+     c[i]=a[i]*b[i];
+    }
+    IO.print("a=");
+    for(int i=0;i<n;i++){
+        IO.print(a[i] + " ");
+    }
+    IO.println();
+    IO.print("b=");
+    for(int i=0;i<n;i++){
+        IO.print(b[i] + " ");
+    }
+    IO.println();
+    IO.print("c=");
+    for(int i=0;i<n;i++){
+        IO.print(c[i] + " ");
+    }
+
+}
