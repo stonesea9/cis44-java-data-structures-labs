@@ -7,13 +7,19 @@ public class Main {
         DynamicArray<Integer> numbers = new DynamicArray<>();
 
         // 1. Add initial elements
-        for (int i = 1; i <= 10; i++) {
+        int i;
+        for (i = 1; i <= 15; i++) {
             numbers.add(i * 10);
         }
 
         System.out.println("Initial DynamicArray:");
         System.out.println(numbers);
+        System.out.println();
+        System.out.println("Size after adding 15 elements = " + numbers.size());
+        System.out.println("(Resize happened when size exceeded 10)");
+        System.out.println();
         System.out.println("Size = " + numbers.size());
+        System.out.println("capacity = " + numbers.length());
         System.out.println();
 
         Scanner scanner = new Scanner(System.in);
