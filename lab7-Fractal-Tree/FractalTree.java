@@ -9,45 +9,44 @@ public class FractalTree extends JPanel {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
 
-        // 从窗口底部中间开始画树
+         // Start the recursion from the bottom center of the panel
         int startX = getWidth() / 2;
         int startY = getHeight() - 50;
 
         drawTree(g, startX, startY, -90, MAX_DEPTH);
     }
 
-    /**
-     * 递归绘制分形树
-     * @param g Graphics绘图对象
-     * @param x1 起点x
-     * @param y1 起点y
-     * @param angle 当前分支角度
-     * @param depth 当前递归深度
+   /**
+     * Recursively draws a fractal tree.
+     * @param g The graphics object to draw on.
+     * @param x1 The starting x-coordinate of the branch.
+     * @param y1 The starting y-coordinate of the branch.
+     * @param angle The angle of the branch in degrees.
+     * @param depth The current recursion depth.
      */
     private void drawTree(Graphics g, int x1, int y1, double angle, int depth) {
 
-        // Base Case：递归停止条件
+        // Base Case
         if (depth == 0) {
             return;
         }
-
-        // 当前树枝长度（深度越小越短）
+        // Calculate the length of the current branch (it should get smaller with depth).
+        // Calculate the end point (x2, y2) of the branch using trigonometry.
+        // Remember to convert the angle to radians: Math.toRadians(angle)
+       // Draw the line for the current branch.
         int length = depth * 10;
-
-        // 把角度转换为弧度
         double radians = Math.toRadians(angle);
 
-        // 计算终点
+        
         int x2 = x1 + (int)(length * Math.cos(radians));
         int y2 = y1 + (int)(length * Math.sin(radians));
-
-        // 画当前树枝
         g.drawLine(x1, y1, x2, y2);
 
-        // 递归画左分支
+         // Make two recursive calls for the left and right sub-branches.
+        // - Branch left by subtracting from the angle (e.g., angle - 20).
+        // - Branch right by adding to the angle (e.g., angle + 30).
+        // - Decrease the depth for both calls (depth - 1).
         drawTree(g, x2, y2, angle - 20, depth - 1);
-
-        // 递归画右分支
         drawTree(g, x2, y2, angle + 20, depth - 1);
     }
 
